@@ -16,6 +16,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const router = express.Router();
 
+app.get("/", (req,res)=> res.json({"message": "i'm working"}));
+
 const enableCORS = function (req, res, next) {
   if (!process.env.DISABLE_XORIGIN) {
     const allowedOrigins = ["https://www.freecodecamp.org"];
