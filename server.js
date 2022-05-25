@@ -14,9 +14,13 @@ try {
 const fs = require("fs");
 const path = require("path");
 const bodyParser = require("body-parser");
-const router = express.Router();
 
-app.get("/", (req,res)=> res.json({"message": "i'm working"}));
+const router = express.Router();
+router.get("/", (req, res) => {
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.write("<h1>Hello from Express.js!</h1>");
+  res.end();
+});
 
 const enableCORS = function (req, res, next) {
   if (!process.env.DISABLE_XORIGIN) {
